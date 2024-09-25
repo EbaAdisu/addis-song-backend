@@ -1,5 +1,6 @@
 require('express-async-errors')
 require('dotenv').config()
+const cors = require('cors')
 
 const express = require('express')
 
@@ -20,6 +21,8 @@ const notFound = require('./middlewares/not-found')
 
 // package
 app.use(express.json())
+// make it accessable to everywhere using cors
+app.use(cors())
 
 // Routes
 
