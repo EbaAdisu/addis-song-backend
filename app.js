@@ -1,3 +1,4 @@
+require('express-async-errors')
 require('dotenv').config()
 
 const express = require('express')
@@ -13,6 +14,8 @@ const songRouter = require('./routes/song')
 
 // Middleware
 
+const authenticationMiddleware = require('./middlewares/authentication')
+const errorHandler = require('./middlewares/error-handler')
 const notFound = require('./middlewares/not-found')
 
 // package
@@ -21,9 +24,10 @@ app.use(express.json())
 // Routes
 
 app.use('/api/v1/auth', authRouter)
-app.use('/api/v1/song', songRouter)
+app.use('/api/v1/song', authenticationMiddleware, songRouter)
 // Middleware
-// app.use(notFound)
+app.use(errorHandler)
+app.use(notFound)
 
 const port = process.env.PORT
 app.listen(port, async () => {

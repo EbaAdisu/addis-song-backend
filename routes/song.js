@@ -14,7 +14,7 @@ const {
 const fileExtLimiter = require('../middlewares/fileExtLimiter')
 const filesPayloadExist = require('../middlewares/filesPayloadExist')
 const fileSizeLimiter = require('../middlewares/fileSizeLimiter')
-const uploadSong = require('../middlewares/uploadSong')
+const uploadSongLocally = require('../middlewares/uploadSongLocally')
 
 router
     .route('/')
@@ -24,7 +24,7 @@ router
         filesPayloadExist,
         fileExtLimiter(['.png', '.jpg', '.jpeg']),
         fileSizeLimiter,
-        uploadSong,
+        uploadSongLocally,
         createSong
     )
 router.route('/:id').get(getSong).patch(updateSong).delete(deleteSong)

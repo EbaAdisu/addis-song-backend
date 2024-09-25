@@ -12,7 +12,7 @@ const fileExtLimiter = (allowedExt) => {
         // console.log(allowed, allowedExt, fileExtensions)
         if (!allowed) {
             return res.status(400).json({
-                msg:
+                message:
                     'Only the following file extensions are allowed: ' +
                     allowedExt.join(', '),
             })

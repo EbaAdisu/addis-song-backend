@@ -10,7 +10,7 @@ const fileSizeLimiter = (req, res, next) => {
     })
     if (filesOverLimit.length) {
         return res.status(400).json({
-            msg: `The following files are over the ${MB}MB limit: ${filesOverLimit.join(
+            message: `The following files are over the ${MB}MB limit: ${filesOverLimit.join(
                 ', '
             )}`,
         })
