@@ -9,6 +9,7 @@ const {
     getAllSongs,
     getSong,
     updateSong,
+    getSongFile,
 } = require('../controllers/song')
 
 const fileExtLimiter = require('../middlewares/fileExtLimiter')
@@ -22,11 +23,12 @@ router
     .post(
         fileUpload({ createParentPath: true }),
         filesPayloadExist,
-        fileExtLimiter(['.png', '.jpg', '.jpeg']),
+        fileExtLimiter(['.mp3', '.mpeg']),
         fileSizeLimiter,
         uploadSongLocally,
         createSong
     )
 router.route('/:id').get(getSong).patch(updateSong).delete(deleteSong)
+router.route('/:id/file').get(getSongFile)
 
 module.exports = router

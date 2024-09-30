@@ -64,10 +64,21 @@ const updateSong = async (req, res) => {
     await song.save()
     res.status(200).json({ message: 'updateSong' })
 }
+
+const getSongFile = async (req, res) => {
+    const { id } = req.params
+    const song = await Song.findById(id)
+    if (!song || !song.file) {
+        return res.status(404).json({ message: 'Song not found' })
+    }
+    res.set('Content-Type', 'audio/mpeg')
+    res.sendFile(song.file)
+}
 module.exports = {
     createSong,
     deleteSong,
     getAllSongs,
     getSong,
     updateSong,
+    getSongFile,
 }

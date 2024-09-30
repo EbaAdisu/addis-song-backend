@@ -27,7 +27,7 @@ const signin = async (req, res) => {
         }
         const token = await user.JwtToken()
         // console.log(token)
-        res.status(StatusCodes.OK).json({ token })
+        res.status(StatusCodes.OK).json({ name, token })
     } catch (error) {
         res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error })
     }
