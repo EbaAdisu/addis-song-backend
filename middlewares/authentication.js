@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken')
 const { UnauthorizedError } = require('../errors')
 
 const auth = async (req, res, next) => {
+    // console.log('aut', req.body)
     const authHeader = req.headers.authorization
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
         throw new UnauthorizedError('Authorization header is required')

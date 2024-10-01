@@ -1,11 +1,13 @@
 require('express-async-errors')
 require('dotenv').config()
+const multer = require('multer')
 const cors = require('cors')
 
 const express = require('express')
 
 const app = express()
 
+const upload = multer()
 // Import DB
 const connectDB = require('./db/connect')
 
@@ -21,6 +23,7 @@ const notFound = require('./middlewares/not-found')
 
 // package
 app.use(express.json())
+// app.use(upload.array())
 // make it accessable to everywhere using cors
 app.use(cors())
 
