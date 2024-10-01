@@ -23,7 +23,7 @@ router
     .post(
         fileUpload({ createParentPath: true }),
         filesPayloadExist,
-        fileExtLimiter(['.mp3', '.mpeg']),
+        fileExtLimiter(['.mp3', '.mpeg', '.m4a']),
         fileSizeLimiter,
         uploadSongLocally,
         createSong

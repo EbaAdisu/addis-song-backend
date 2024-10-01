@@ -16,7 +16,7 @@ const uploadSongLocally = async (req, res, next) => {
         }
     })
     req.songFilePath = filePath
-    console.log('songfile', filePath)
+    // console.log('songfile', filePath)
     next()
 }
 

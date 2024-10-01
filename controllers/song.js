@@ -17,8 +17,9 @@ const createSong = async (req, res) => {
         file: songFileUrl,
         createdBy,
     })
+    console.log('song', song)
 
-    res.status(200).json({ message: 'createSong' })
+    res.status(200).json({ song })
 }
 const deleteSong = async (req, res) => {
     const { id } = req.params
@@ -26,10 +27,9 @@ const deleteSong = async (req, res) => {
     if (!song) {
         return res.status(404).json({ message: 'Song not found' })
     }
-    if (song.createdBy.toString() !== req.user._id.toString()) {
-        return res.status(403).json({ message: 'Not authorized' })
-    }
-    // Delete the song file
+    // if (song.createdBy.toString() !== req.user._id.toString()) {
+    //     return res.status(403).json({ message: 'Not authorized' })
+    // }
     fs.unlinkSync(song.file)
     await Song.deleteOne({ _id: id })
 
