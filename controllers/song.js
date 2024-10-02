@@ -17,7 +17,7 @@ const createSong = async (req, res) => {
         file: songFileUrl,
         createdBy,
     })
-    console.log('song', song)
+    // console.log('song', song)
 
     res.status(200).json({ song })
 }

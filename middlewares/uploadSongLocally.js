@@ -11,7 +11,7 @@ const uploadSongLocally = async (req, res, next) => {
     // console.log(filePath)
     songFile.mv(filePath, (err) => {
         if (err) {
-            console.log(err)
+            // console.log(err)
             return res.status(500).json({ message: 'Failed to upload' })
         }
     })
