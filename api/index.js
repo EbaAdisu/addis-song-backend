@@ -5,14 +5,14 @@ require('dotenv').config()
 const app = express()
 
 // Import DB and Routers
-const connectDB = require('./db/connect')
-const authRouter = require('./routes/auth')
-const songRouter = require('./routes/song')
+const connectDB = require('../db/connect')
+const authRouter = require('../routes/auth')
+const songRouter = require('../routes/song')
 
 // Middleware
-const authenticationMiddleware = require('./middlewares/authentication')
-const errorHandler = require('./middlewares/error-handler')
-const notFound = require('./middlewares/not-found')
+const authenticationMiddleware = require('../middlewares/authentication')
+const errorHandler = require('../middlewares/error-handler')
+const notFound = require('../middlewares/not-found')
 
 // Package middlewares
 app.use(express.json())
@@ -25,10 +25,10 @@ connectDB(process.env.MONGO_URI)
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('servelress')
+    res.send('server is working')
 })
-app.use('/api/v1/auth', authRouter)
-app.use('/api/v1/song', authenticationMiddleware, songRouter)
+app.use('/auth', authRouter)
+app.use('/song', authenticationMiddleware, songRouter)
 
 // Error handlers
 app.use(errorHandler)
