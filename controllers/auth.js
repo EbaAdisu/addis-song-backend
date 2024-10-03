@@ -1,7 +1,7 @@
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, UnauthorizedError } = require('../errors')
 
-const User = require('../models/user')
+const User = require('../models/User')
 
 const signin = async (req, res) => {
     const { name, password } = req.body

@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes')
-const Song = require('../models/song')
+const Song = require('../models/Song')
 const fs = require('fs')
 const {
     BadRequestError,

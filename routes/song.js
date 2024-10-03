@@ -17,7 +17,6 @@ const fileExtLimiter = require('../middlewares/fileExtLimiter')
 const filesPayloadExist = require('../middlewares/filesPayloadExist')
 const fileSizeLimiter = require('../middlewares/fileSizeLimiter')
 const uploadSongLocally = require('../middlewares/uploadSongLocally')
-const { get } = require('../models/Comment')
 
 router
     .route('/')
