@@ -19,6 +19,9 @@ app.use(express.json())
 app.use(cors())
 
 // Routes
+app.get('/', (req, res) => {
+    res.send('base API')
+})
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/song', authenticationMiddleware, songRouter)
 
