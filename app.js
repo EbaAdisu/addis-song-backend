@@ -24,6 +24,9 @@ connectDB(process.env.MONGO_URI)
     .catch((error) => console.error('Database connection error', error))
 
 // Routes
+app.get('/', (req, res) => {
+    res.send('servelress')
+})
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/song', authenticationMiddleware, songRouter)
 
