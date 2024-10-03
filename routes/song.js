@@ -33,5 +33,8 @@ router
 router.route('/mine').get(getMySongs)
 router.route('/:id').get(getSong).patch(updateSong).delete(deleteSong)
 router.route('/:id/file').get(getSongFile)
+router.route('/').get((req, res) => {
+    res.send('Song route')
+})
 
 module.exports = router
