@@ -18,10 +18,12 @@ const notFound = require('./middlewares/not-found')
 app.use(express.json())
 app.use(cors())
 
+// Connect to the database
+connectDB(process.env.MONGO_URI)
+    .then(() => console.log('Connected to the database successfully'))
+    .catch((error) => console.error('Database connection error', error))
+
 // Routes
-app.get('/', (req, res) => {
-    res.send('base API')
-})
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/song', authenticationMiddleware, songRouter)
 
