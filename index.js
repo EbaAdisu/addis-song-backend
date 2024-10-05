@@ -27,6 +27,7 @@ app.use(cors())
 app.get(`/`, (req, res) => {
     res.send('Welcome to the music app')
 })
+
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/song', authenticationMiddleware, songRouter)
 // Middleware
